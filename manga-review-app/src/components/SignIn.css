@@ -1,0 +1,59 @@
+/* SignIn.css */
+
+.signin-background {
+    background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Fso%2Fsigns&psig=AOvVaw1MwtIkn-snlpU0-8s4RJaC&ust=1726881794274000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLCukJKu0IgDFQAAAAAdAAAAABAE') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signin-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    color: #0f0;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .signin-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f0;
+  }
+  
+  .signin-form label {
+    margin-bottom: 5px;
+    display: block;
+    color: #0f0;
+  }
+  
+  .signin-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #0f0;
+  }
+  
+  .signin-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .signin-form button:hover {
+    background-color: #0b0;
+  }
+  

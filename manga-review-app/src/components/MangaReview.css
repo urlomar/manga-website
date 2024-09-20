@@ -1,0 +1,72 @@
+import .manga-review
+.manga-review {
+    margin-top: 20px;
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  nav a {
+    color: #0f0;
+    text-decoration: none;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input, textarea, select, button {
+    border: 1px solid #0f0;
+    background: rgba(0, 0, 0, 0.7); 
+    color: #0f0;
+    box-shadow: 0 0 5px #0f0;
+    margin: 10px;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: rgba(0, 255, 0, 0.2);
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 255, 0, 0.5);
+  }
+  
+  .review {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1); 
+  }
+  .flashing-luffy {
+    border: 2px solid #0f0; 
+    border-radius: 8px; 
+    display: block;
+    margin: 20px auto;
+    max-width: 2%; 
+    max-height: 20px; 
+    height: auto; 
+  }
+  
+  
+  
+  
+  
+  
