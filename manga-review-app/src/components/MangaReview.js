@@ -1,8 +1,9 @@
+// src/components/MangaReview.js
 import React, { useState } from 'react';
 
-function MangaReview({ reviews }) {
+function MangaReview({ reviews, addReview }) {
   const [username, setUsername] = useState('');
-  const [reviewText, setReviewText] = useState('');
+  const [reviewText, setReviewText] = useState(''); // This matches server's reviewText field
   const [rating, setRating] = useState(1);
   const [manga, setManga] = useState('Hell’s Paradise');
 
@@ -14,14 +15,34 @@ function MangaReview({ reviews }) {
     }
 
     const newReview = { username, reviewText, rating, manga };
-    await fetch('http://localhost:5000/api/reviews', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newReview),
-    });
-    
+
+    try {
+      const response = await fetch('http://localhost:5000/api/reviews', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newReview),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit the review');
+      }
+
+      const result = await response.json();
+      console.log('Review submitted:', result);
+
+      // Call addReview to update the reviews state in App
+      addReview(result); // Pass the new review to the parent component
+
+      // Clear form fields
+      setUsername('');
+      setReviewText('');
+      setRating(1);
+      setManga('Hell’s Paradise');
+    } catch (error) {
+      console.error('Error submitting review:', error);
+    }
   };
 
   return (
@@ -34,7 +55,11 @@ function MangaReview({ reviews }) {
           </ul>
         </nav>
       </header>
-      <img src="https://giffiles.alphacoders.com/219/219506.gif" alt="Flashing Luffy" className="flashing-luffy" />
+      <img
+        src="https://i.pinimg.com/originals/6b/f2/75/6bf2754b90fd9ccb50feb0f991d12cb6.gif"
+        alt="Flashing Luffy"
+        className="flashing-luffy"
+      />
       <form onSubmit={handleSubmit}>
         <input
           type="text"

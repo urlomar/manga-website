@@ -60,8 +60,8 @@ import .manga-review
     border-radius: 8px; 
     display: block;
     margin: 20px auto;
-    max-width: 2%; 
-    max-height: 20px; 
+    max-width: 100%; 
+    max-height: 200px; 
     height: auto; 
   }
   

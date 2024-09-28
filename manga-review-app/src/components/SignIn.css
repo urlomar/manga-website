@@ -1,7 +1,7 @@
 /* SignIn.css */
 
 .signin-background {
-    background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Fso%2Fsigns&psig=AOvVaw1MwtIkn-snlpU0-8s4RJaC&ust=1726881794274000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLCukJKu0IgDFQAAAAAdAAAAABAE') no-repeat center center fixed;
+    background: url('/images/signin-background.jpeg') no-repeat center center fixed;
     background-size: cover;
     padding: 20px;
     min-height: 100vh;
