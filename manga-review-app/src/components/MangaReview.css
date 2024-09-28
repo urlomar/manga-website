@@ -1,72 +1,94 @@
-import .manga-review
 .manga-review {
-    margin-top: 20px;
-  }
-  
-  header {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    text-align: center;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  nav li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  nav a {
-    color: #0f0;
-    text-decoration: none;
-  }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
+  margin-top: 30px;
+}
+
+header {
+  background-color: rgba(9, 9, 9, 0.7);
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav a {
+  color: #0f0;
+  text-decoration: none;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input, textarea, select, button {
+  border: 1px solid #0f0;
+  background: rgba(0, 0, 0, 0.7); 
+  color: #0f0;
+  box-shadow: 0 0 5px #0f0;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  width: calc(100% - 42px); /* Adjust width to account for padding and border */
+}
+
+button {
+  background-color: rgba(0, 255, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+.review {
+  margin-top: 20px;
+  padding: 10px;
+  border: 10px solid #0f0;
+  border-radius: 10px;
+  background: rgb(255, 200, 0); 
+}
+
+.reviews {
+  margin-top: 30px; /* Additional space above reviews */
+}
+
+.submission-status {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  background-color: rgba(0, 255, 0, 0.1);
+  color: #0f0;
+  text-align: center;
+}
+
+.flashing-luffy {
+  border: 2px solid #0f0; 
+  border-radius: 3px; 
+  display: block;
+  margin: 20px auto;
+  max-width: 100%; 
+  max-height: 350px; 
+  height: auto; 
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
   input, textarea, select, button {
-    border: 1px solid #0f0;
-    background: rgba(0, 0, 0, 0.7); 
-    color: #0f0;
-    box-shadow: 0 0 5px #0f0;
-    margin: 10px;
-    padding: 8px;
-    border-radius: 4px;
+      width: calc(100% - 20px); /* Full width on mobile */
   }
-  
-  button {
-    background-color: rgba(0, 255, 0, 0.2);
-    border: none;
-    cursor: pointer;
+
+  nav li {
+      display: block; /* Stack nav items */
+      margin: 10px 0; /* Spacing */
   }
-  
-  button:hover {
-    background-color: rgba(0, 255, 0, 0.5);
-  }
-  
-  .review {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #0f0;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1); 
-  }
-  .flashing-luffy {
-    border: 2px solid #0f0; 
-    border-radius: 8px; 
-    display: block;
-    margin: 20px auto;
-    max-width: 100%; 
-    max-height: 200px; 
-    height: auto; 
-  }
-  
-  
-  
-  
-  
-  
+}

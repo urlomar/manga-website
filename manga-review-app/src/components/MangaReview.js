@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 
 function MangaReview({ reviews, addReview }) {
   const [username, setUsername] = useState('');
-  const [reviewText, setReviewText] = useState(''); // This matches server's reviewText field
+  const [reviewText, setReviewText] = useState('');
   const [rating, setRating] = useState(1);
   const [manga, setManga] = useState('Hell’s Paradise');
+  const [submissionStatus, setSubmissionStatus] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ function MangaReview({ reviews, addReview }) {
       return;
     }
 
-    const newReview = { username, reviewText, rating, manga };
+    const newReview = { username, review: reviewText, rating, manga };
 
     try {
       const response = await fetch('http://localhost:5000/api/reviews', {
@@ -30,10 +31,8 @@ function MangaReview({ reviews, addReview }) {
       }
 
       const result = await response.json();
-      console.log('Review submitted:', result);
-
-      // Call addReview to update the reviews state in App
-      addReview(result); // Pass the new review to the parent component
+      addReview(result);
+      setSubmissionStatus('Review submitted successfully!'); // Success message
 
       // Clear form fields
       setUsername('');
@@ -42,6 +41,7 @@ function MangaReview({ reviews, addReview }) {
       setManga('Hell’s Paradise');
     } catch (error) {
       console.error('Error submitting review:', error);
+      setSubmissionStatus('Error submitting review. Please try again.'); // Error message
     }
   };
 
@@ -56,7 +56,7 @@ function MangaReview({ reviews, addReview }) {
         </nav>
       </header>
       <img
-        src="https://i.pinimg.com/originals/6b/f2/75/6bf2754b90fd9ccb50feb0f991d12cb6.gif"
+        src="https://i.giphy.com/3oz8xWSZB0PlDmctYA.gif"
         alt="Flashing Luffy"
         className="flashing-luffy"
       />
@@ -79,7 +79,7 @@ function MangaReview({ reviews, addReview }) {
           <option value="One Piece">One Piece</option>
           <option value="Sakamoto Days">Sakamoto Days</option>
         </select>
-        <select value={rating} onChange={(e) => setRating(e.target.value)}>
+        <select value={rating} onChange={(e) => setRating(Number(e.target.value))}>
           <option value="1">1 Star</option>
           <option value="2">2 Stars</option>
           <option value="3">3 Stars</option>
@@ -88,18 +88,23 @@ function MangaReview({ reviews, addReview }) {
         </select>
         <button type="submit">Submit Review</button>
       </form>
+      {submissionStatus && <p>{submissionStatus}</p>} {/* Display status message */}
       <div className="reviews">
-        {reviews.map((review, index) => (
-          <div key={index} className="review">
-            <h4>{review.username} rated it {review.rating} stars:</h4>
-            <p>{review.reviewText}</p>
-            <div>
-              {Array.from({ length: review.rating }, (_, i) => (
-                <span key={i} role="img" aria-label="star">⭐</span>
-              ))}
+        {reviews.length > 0 ? ( // Check if there are reviews
+          reviews.map((review, index) => (
+            <div key={index} className="review">
+              <h4>{review.username} rated it {review.rating} stars:</h4>
+              <p>{review.review}</p>
+              <div>
+                {Array.from({ length: review.rating }, (_, i) => (
+                  <span key={i} role="img" aria-label="star">⭐</span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No reviews available yet.</p> // Empty state message
+        )}
       </div>
     </div>
   );
